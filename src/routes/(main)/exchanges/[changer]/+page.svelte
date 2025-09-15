@@ -51,13 +51,13 @@
 					alt="{changerName} Logo"
 					class="w-6 h-6 rounded-full object-contain"
 				/>
-				<span class="text-gray-500/60 text-lg">{changerName}</span>
+				<span class="text-gray-500/60 dark:text-gray-200/60 text-lg">{changerName}</span>
 			</span>
 		</h1>
 	</div>
 
 	<div
-		class="bg-gray-400/10 p-4 rounded-md flex flex-col md:flex-row gap-4 md:items-center justify-between mb-6"
+		class="bg-gray-400/10 dark:bg-gray-900/80 p-4 rounded-lg flex flex-col md:flex-row gap-4 md:items-center justify-between mb-6"
 	>
 		<div class="w-full md:w-1/3">
 			<label class="text-sm text-gray-700" for="amount">Amount</label>
@@ -65,7 +65,7 @@
 				<input
 					type="number"
 					id="amount"
-					class="input border-gray-500/20 focus:border-gray-500/30 hover:border-gray-500/30 focus:ring-0"
+					class="input border-gray-500/20 dark:border-gray-600/20 focus:border-gray-500/30 hover:border-gray-500/30 focus:ring-0"
 					autocomplete="off"
 					placeholder="Enter amount in USD"
 					bind:value={amount}
@@ -75,7 +75,7 @@
 		<div class="w-full md:w-1/3">
 			<label class="text-sm text-gray-700" for="from-currency">From</label>
 			<div
-				class="input py-0 px-4 border-gray-500/20 focus:border-gray-500/30 hover:border-gray-500/30 focus:ring-0 w-full flex items-center"
+				class="input py-0 px-4 border-gray-500/20 dark:border-gray-600/20 focus:border-gray-500/30 hover:border-gray-500/30 focus:ring-0 w-full flex items-center"
 			>
 				<img
 					src="https://wise.com/public-resources/assets/flags/rectangle/{fromCurrency.toLowerCase()}.png"
@@ -98,7 +98,7 @@
 		<div class="w-full md:w-1/3">
 			<label class="text-sm text-gray-700" for="to-currency">To</label>
 			<div
-				class="input py-0 px-4 border-gray-500/20 focus:border-gray-500/30 hover:border-gray-500/30 focus:ring-0 w-full flex items-center"
+				class="input py-0 px-4 border-gray-500/20 dark:border-gray-600/20 focus:border-gray-500/30 hover:border-gray-500/30 focus:ring-0 w-full flex items-center"
 			>
 				<img
 					src="https://wise.com/public-resources/assets/flags/rectangle/{toCurrency.toLowerCase()}.png"
@@ -120,11 +120,11 @@
 		</div>
 	</div>
 
-	<div class="bg-gray-400/10 rounded-md mb-6">
+	<div class="bg-gray-400/10 dark:bg-gray-900/80 rounded-lg mb-6 overflow-hidden">
 		<div class="p-4">
 			<div class="flex flex-col md:flex-row gap-4 md:items-center justify-between w-full">
 				<div>
-					<div class="font-medium text-gray-700 mb-2">
+					<div class="font-medium text-gray-700 dark:text-gray-300 mb-2">
 						{Money.format(amount)}
 						{getFromCurrencyName()} =
 					</div>
@@ -132,7 +132,7 @@
 						{Money.format(amount * rate)}
 						{getToCurrencyName()}
 					</div>
-					<div class="text-sm text-gray-500/60 flex flex-col">
+					<div class="text-sm text-gray-500/60 dark:text-gray-200/70 flex flex-col">
 						<span
 							>1 {fromCurrency.toUpperCase()} = {Money.format(rate)}
 							{toCurrency.toUpperCase()}</span
@@ -189,7 +189,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="text-sm text-gray-800 mt-8 text-left md:text-center bg-gray-200/80 p-2 rounded-md">
+		<div class="text-sm text-gray-800 dark:text-gray-200 mt-8 text-left md:text-center bg-gray-200/80 dark:bg-gray-200/10 p-2 rounded-md">
 			{getFromCurrencyName()} to {getToCurrencyName()} conversion on {changerName}
 			- Last updated {new Date()}
 		</div>
@@ -205,35 +205,35 @@
 						alt="{changerName} Logo"
 						class="w-6 h-6 rounded-full object-contain"
 					/>
-					<span class="text-gray-500/60">{changerName}</span>
+					<span class="text-gray-500/60 dark:text-gray-200/60">{changerName}</span>
 				</h2>
 				<div class="flex flex-row items-center justify-between mt-2">
 					<span class="flex items-center gap-3">
-						<span class="text-2xl font-bold">₦{price.toLocaleString()}</span>
+						<span class="text-2xl font-bold dark:text-gray-100">₦{price.toLocaleString()}</span>
 						<span
 							class="{rateChange.toString().includes('-')
 								? 'text-red-500'
 								: 'text-green-500'} text-xs">{rateChange}%</span
 						>
 					</span>
-					<span class="text-sm text-gray-500">
+					<span class="text-sm text-gray-500 dark:text-gray-300">
 						${dollar} Dollar
 					</span>
 				</div>
 			</div>
 
-			<div class="flex items-center justify-between gap-2 text-sm font-bold text-gray-700">
+			<div class="flex items-center justify-between gap-2 text-sm font-bold text-gray-700 dark:text-gray-100">
 				<span>INFO</span>
-				<span class="border-b border-gray-200/80 -mt-1 block w-3/4" />
+				<span class="border-b border-gray-200/80 dark:border-gray-700/60 -mt-1 block w-3/4" />
 			</div>
 
 			<div class="space-y-4 text-sm">
 				<div class="flex items-center justify-between">
-					<span class="text-gray-400">Website</span> <a href="#" class="link">Gtbank.com</a>
+					<span class="text-gray-400 dark:text-gray-300">Website</span> <a href="#" class="link">Gtbank.com</a>
 				</div>
 				<div class="flex items-center justify-between">
 					<div>
-						<span class="text-gray-400">Social Media</span>
+						<span class="text-gray-400 dark:text-gray-300">Social Media</span>
 					</div>
 					<div class="flex items-center gap-2">
 						<a href="#" class="link !p-1 rounded-xl">
@@ -299,30 +299,30 @@
 					</div>
 				</div>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-400">Email</span>
+					<span class="text-gray-400 dark:text-gray-300">Email</span>
 					<a href="mailto:gtbank@support.com" class="link">gtbank@support.com</a>
 				</div>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-400">Services</span>
+					<span class="text-gray-400 dark:text-gray-300">Services</span>
 					<span class="inline-flex gap-1"
 						><span class="link">Investment</span><span class="link"> Banking</span></span
 					>
 				</div>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-400">Fees</span> <span class="link">$1</span>
+					<span class="text-gray-400 dark:text-gray-300">Fees</span> <span class="link">$1</span>
 				</div>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-400">Monierate ID</span> <span class="link">#886573</span>
+					<span class="text-gray-400 dark:text-gray-300">Monierate ID</span> <span class="link">#886573</span>
 				</div>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-400">Tags</span>
+					<span class="text-gray-400 dark:text-gray-300">Tags</span>
 					<span class="inline-flex gap-1">
 						<span class="link">Virtual Cards</span>
 						<span class="link">Cross Border Remittance</span>
 					</span>
 				</div>
 				<div class="flex items-center justify-between">
-					<span class="text-gray-400">Currency Offerings</span>
+					<span class="text-gray-400 dark:text-gray-300">Currency Offerings</span>
 					<span class="inline-flex gap-1">
 						<span class="link">$</span>
 						<span class="link">€</span>
@@ -332,17 +332,17 @@
 			</div>
 
 			<div>
-				<h3 class="text-sm font-bold text-gray-700 mb-4">GT Bank Historical Rate</h3>
+				<h3 class="text-sm font-bold text-gray-700 dark:text-gray-100 mb-4">GT Bank Historical Rate</h3>
 				<ul class="mt-2 space-y-4 text-sm">
 					{#each historicalRates as r}
 						<li class="flex items-center justify-between">
-							<span class="text-gray-400">{r.label}</span>
+							<span class="text-gray-400 dark:text-gray-300">{r.label}</span>
 							<span class="flex items-center gap-2">
 								₦{r.value.toLocaleString()}
 								<span
 									class="{r.change.toString().includes('-')
-										? 'text-red-500 bg-red-100/50'
-										: 'text-green-500 bg-green-100/50'} text-xs rounded-md px-1 py-0.5"
+										? 'text-red-500 bg-red-100/50 dark:bg-red-900/30'
+										: 'text-green-500 bg-green-100/50 dark:bg-green-900/30'} text-xs rounded-md px-1 py-0.5"
 									>+{r.change}%</span
 								>
 							</span>
@@ -353,7 +353,7 @@
 
 			<div class="flex flex-col md:flex-row md:items-center gap-3">
 				<button
-					class="button border border-gray-500 bg-transparent hover:bg-gray-100 text-black md:w-1/2"
+					class="button border border-gray-500 bg-transparent hover:bg-gray-100 text-black dark:text-white md:w-1/2"
 					>Get Price Alert</button
 				>
 				<button class="button md:w-1/2 flex items-center justify-center gap-2"
@@ -380,8 +380,8 @@
 			<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
 				<div>
 					<div class="flex items-center gap-2 mb-4">
-						<button class="link text-sm">Overview</button>
-						<button class="link text-sm !bg-transparent hover:bg-gray-100 !text-gray-500"
+						<button class="tab-link active">Overview</button>
+						<button class="tab-link"
 							>About</button
 						>
 					</div>
@@ -409,11 +409,11 @@
 					</div>
 				</div>
 				</div>
-				<div class="flex gap-4 mb-4 text-sm bg-gray-200/50 p-1 rounded-md">
+				<div class="flex gap-4 mb-4 text-sm bg-gray-200/50 dark:bg-gray-900/50 p-1 rounded-md">
 					{#each ['24hrs', '7days', '2weeks', 'All Time'] as tab}
 						<button
-							class="px-3 py-1 rounded-md bg-gray-100 {activeTab == tab
-								? 'text-gray-500 bg-white'
+							class="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800/20 {activeTab == tab
+								? 'text-gray-500 dark:text-gray-300 bg-white dark:bg-gray-700/60'
 								: 'text-gray-400'} text-sm"
 							on:click={() => (activeTab = tab)}
 						>
@@ -434,8 +434,8 @@
 			<AdBanner name="changer_page" cover={true} />
 		</div>
 		<div class="w-full md:w-2/3 space-y-6">
-			<h3 class="text-sm font-bold text-gray-700">What is {changerName}?</h3>
-			<p class="text-gray-500">
+			<h3 class="text-sm font-bold text-gray-700 dark:text-gray-100">What is {changerName}?</h3>
+			<p class="text-gray-500 dark:text-gray-300">
 				GT Bank is a leading financial institution in Nigeria, known for its innovative banking
 				solutions and commitment to customer satisfaction. Established in 1990, GT Bank has grown to
 				become one of the largest banks in Africa, offering a wide range of services including
@@ -447,8 +447,8 @@
 				Nigeria.
 			</p>
 
-			<h3 class="text-sm font-bold text-gray-700">Where is {changerName}?</h3>
-			<p class="text-gray-500">
+			<h3 class="text-sm font-bold text-gray-700 dark:text-gray-100">Where is {changerName}?</h3>
+			<p class="text-gray-500 dark:text-gray-300">
 				GT Bank, or Guaranty Trust Bank, is headquartered in Lagos, Nigeria. The bank has a strong
 				presence throughout Nigeria with numerous branches and ATMs across the country. In addition
 				to its operations in Nigeria, GT Bank has expanded its footprint internationally, with
@@ -463,6 +463,12 @@
 
 <style>
 	.link {
-		@apply text-primary bg-primary/10 hover:bg-primary/20 py-1 px-3 rounded-md transition-colors duration-300;
+		@apply text-primary dark:text-gray-300 bg-primary/10 dark:bg-gray-900/50 hover:bg-primary/20 dark:hover:bg-gray-900/50 py-1 px-3 rounded-md transition-colors duration-300;
+	}
+	.tab-link {
+		@apply text-gray-500 dark:text-gray-300 bg-transparent hover:bg-primary/10 py-1 px-3 rounded-md transition-colors duration-300 text-sm;
+	}
+	.tab-link.active {
+		@apply text-primary bg-primary/10;
 	}
 </style>
