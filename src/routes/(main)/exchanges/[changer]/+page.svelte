@@ -5,8 +5,8 @@
 
 	export let data;
 	const currencies = data.currencies;
-	const exchange = data.exchange;
-	const exchangeName = 'GT Bank';
+	const changer = data.changer;
+	const changerName = 'GT Bank';
 
 	const currencyOptions = [
 		{ code: 'ngn', name: 'Nigerian Naira' },
@@ -46,11 +46,11 @@
 			<span>1 {fromCurrency.toUpperCase()} to {toCurrency.toUpperCase()} on</span>
 			<span class="inline-flex items-center gap-1">
 				<img
-					src="/icons/{exchange}.png"
-					alt="{exchangeName} Logo"
+					src="/icons/{changer}.png"
+					alt="{changerName} Logo"
 					class="w-6 h-6 rounded-full object-contain"
 				/>
-				<span class="text-gray-500/60 text-lg">{exchangeName}</span>
+				<span class="text-gray-500/60 text-lg">{changerName}</span>
 			</span>
 		</h1>
 	</div>
@@ -158,12 +158,12 @@
 								d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
 							/>
 						</svg>
-						We use the exchange rate from {exchangeName} for this conversion.
+						We use the exchange rate from {changerName} for this conversion.
 						<br /> This is for informational purposes only.
 					</div>
 					<div class="mt-6 flex items-center gap-4">
 						<a href="/exchanges/gtbank" class="button">
-							Open {exchangeName}
+							Open {changerName}
 						</a>
 						<a
 							href="/exchanges/gtbank"
@@ -189,7 +189,7 @@
 			</div>
 		</div>
 		<div class="text-sm text-gray-800 mt-8 text-center bg-gray-200/80 p-2 rounded-md">
-			{getFromCurrencyName()} to {getToCurrencyName()} conversion on {exchangeName}
+			{getFromCurrencyName()} to {getToCurrencyName()} conversion on {changerName}
 			- Last updated {new Date()}
 		</div>
 	</div>
@@ -200,11 +200,11 @@
 			<div>
 				<h2 class="text-lg font-bold flex items-center gap-1">
 					<img
-						src="/icons/{exchange}.png"
-						alt="{exchangeName} Logo"
+						src="/icons/{changer}.png"
+						alt="{changerName} Logo"
 						class="w-6 h-6 rounded-full object-contain"
 					/>
-					<span class="text-gray-500/60">{exchangeName}</span>
+					<span class="text-gray-500/60">{changerName}</span>
 				</h2>
 				<div class="flex flex-row items-center justify-between mt-2">
 					<span class="flex items-center gap-3">
@@ -389,7 +389,7 @@
       <AdBanner name="changer_page" cover={true} />
     </div>
     <div class="w-2/3">
-      <h3 class="text-sm font-bold text-gray-700 mb-4">What is {exchangeName}?</h3>
+      <h3 class="text-sm font-bold text-gray-700 mb-4">What is {changerName}?</h3>
       <p class="text-gray-500">
         GT Bank is a leading financial institution in Nigeria, known for its innovative banking solutions and
         commitment to customer satisfaction. Established in 1990, GT Bank has grown to become one of the largest
@@ -400,7 +400,7 @@
         social responsibility initiatives, contributing to the development of communities across Nigeria.
       </p>
 
-      <h3 class="text-sm font-bold text-gray-700 mb-4 mt-6">Where is {exchangeName}?</h3>
+      <h3 class="text-sm font-bold text-gray-700 mb-4 mt-6">Where is {changerName}?</h3>
       <p class="text-gray-500">
         GT Bank, or Guaranty Trust Bank, is headquartered in Lagos, Nigeria. The bank has a strong presence
         throughout Nigeria with numerous branches and ATMs across the country. In addition to its operations
