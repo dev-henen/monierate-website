@@ -41,6 +41,10 @@
 	let activeTab = '24hrs';
 </script>
 
+<svelte:head>
+	<title>{changerName} Exchange Rate</title>
+</svelte:head>
+
 <div class="container">
 	<div>
 		<h1 class="text-xl font-bold mb-4 mt-0 pt-0 flex items-center gap-2">
