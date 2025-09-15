@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Money from '$lib/money';
-	import { onMount } from 'svelte';
 	import Chart from './Chart.svelte';
+  import AdBanner from '$lib/components/AdBanner.svelte';
 
 	export let data;
 	const currencies = data.currencies;
@@ -383,6 +383,34 @@
 			</div>
 		</div>
 	</div>
+
+  <div class="mt-16 flex flex-col md:flex-row gap-6">
+    <div class="w-1/3">
+      <AdBanner name="changer_page" cover={true} />
+    </div>
+    <div class="w-2/3">
+      <h3 class="text-sm font-bold text-gray-700 mb-4">What is {exchangeName}?</h3>
+      <p class="text-gray-500">
+        GT Bank is a leading financial institution in Nigeria, known for its innovative banking solutions and
+        commitment to customer satisfaction. Established in 1990, GT Bank has grown to become one of the largest
+        banks in Africa, offering a wide range of services including personal banking, corporate banking, and
+        investment services. With a strong focus on technology and digital transformation, GT Bank provides its
+        customers with convenient and secure banking options through its extensive network of branches and ATMs,
+        as well as its robust online and mobile banking platforms. The bank is also recognized for its corporate
+        social responsibility initiatives, contributing to the development of communities across Nigeria.
+      </p>
+
+      <h3 class="text-sm font-bold text-gray-700 mb-4 mt-6">Where is {exchangeName}?</h3>
+      <p class="text-gray-500">
+        GT Bank, or Guaranty Trust Bank, is headquartered in Lagos, Nigeria. The bank has a strong presence
+        throughout Nigeria with numerous branches and ATMs across the country. In addition to its operations
+        in Nigeria, GT Bank has expanded its footprint internationally, with branches and subsidiaries in
+        several other countries including the United Kingdom, Ghana, Kenya, Rwanda, Sierra Leone, and The Gambia.
+        This international presence allows GT Bank to serve a diverse customer base and facilitate cross-border
+        banking services for individuals and businesses alike.
+      </p>
+    </div>
+  </div>
 </div>
 
 <style>

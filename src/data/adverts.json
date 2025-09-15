@@ -88,5 +88,17 @@
 		"width": "350px",
 		"height": "390px",
 		"_v": 1
+	},
+	"changer_page": {
+		"name": "",
+		"url": "https://tinyurl.com/ipay-btc-signup-link",
+		"image": "/media/banners/ipaybtc-2.avif",
+		"formats": ["avif", "gif"],
+		"label": "iPayBTC",
+		"mobile_only": false,
+		"disabled": false,
+		"width": "350px",
+		"height": "390px",
+		"_v": 1
 	}
 }
