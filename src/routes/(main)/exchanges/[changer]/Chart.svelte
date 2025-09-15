@@ -88,28 +88,9 @@
 		chart?.destroy();
 	});
 
-	let activeTab = '24hrs';
 </script>
 
-<div class="w-full h-full flex flex-col bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-	<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-		<div>
-			<button class="link text-sm">Overview</button>
-			<button class="link text-sm !bg-transparent hover:bg-gray-100 !text-gray-500">About</button>
-		</div>
-		<div class="flex gap-4 mb-4 text-sm bg-gray-200/50 p-1 rounded-md">
-			{#each ['24hrs', '7days', '2weeks', 'All Time'] as tab}
-				<button
-					class="px-3 py-1 rounded-md bg-gray-100 {activeTab == tab
-						? 'text-gray-500 bg-white'
-						: 'text-gray-400'} text-sm"
-					on:click={() => (activeTab = tab)}
-				>
-					{tab}
-				</button>
-			{/each}
-		</div>
-	</div>
+<div class="w-full h-full flex flex-col bg-white dark:bg-gray-800 md:p-4">
 	<div class="w-full h-[300px] md:h-[400px] lg:h-[450px]">
 		<canvas bind:this={canvasEl} />
 	</div>

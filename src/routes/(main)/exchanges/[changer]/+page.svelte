@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Money from '$lib/money';
 	import Chart from './Chart.svelte';
-  import AdBanner from '$lib/components/AdBanner.svelte';
+	import AdBanner from '$lib/components/AdBanner.svelte';
 
 	export let data;
 	const currencies = data.currencies;
@@ -38,6 +38,7 @@
 		{ label: '7days', value: 2800.28, change: 0.24 },
 		{ label: 'All Time', value: 2800.28, change: 0.24 }
 	];
+	let activeTab = '24hrs';
 </script>
 
 <div class="container">
@@ -188,16 +189,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="text-sm text-gray-800 mt-8 text-center bg-gray-200/80 p-2 rounded-md">
+		<div class="text-sm text-gray-800 mt-8 text-left md:text-center bg-gray-200/80 p-2 rounded-md">
 			{getFromCurrencyName()} to {getToCurrencyName()} conversion on {changerName}
 			- Last updated {new Date()}
 		</div>
 	</div>
 
-	<div class="flex flex-col md:flex-row md:items-end gap-6 mt-16">
+	<div class="flex flex-col-reverse md:flex-row md:items-end gap-6 mt-16">
 		<!-- LEFT SIDEBAR -->
 		<div class="w-full md:w-1/3 flex flex-col gap-6">
-			<div>
+			<div class="hidden md:block">
 				<h2 class="text-lg font-bold flex items-center gap-1">
 					<img
 						src="/icons/{changer}.png"
@@ -350,12 +351,12 @@
 				</ul>
 			</div>
 
-			<div class="flex items-center gap-3">
+			<div class="flex flex-col md:flex-row md:items-center gap-3">
 				<button
-					class="button border border-gray-500 bg-transparent hover:bg-gray-100 text-black w-1/2"
+					class="button border border-gray-500 bg-transparent hover:bg-gray-100 text-black md:w-1/2"
 					>Get Price Alert</button
 				>
-				<button class="button w-1/2 flex items-center justify-center gap-2"
+				<button class="button md:w-1/2 flex items-center justify-center gap-2"
 					>Buy USDT <svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -376,41 +377,88 @@
 
 		<div class="w-full md:w-2/3">
 			<!-- RIGHT CONTENT (Chart + Tabs) -->
-			<div>
-				<div class="w-full flex items-center justify-center text-gray-500">
-					<Chart />
+			<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+				<div>
+					<div class="flex items-center gap-2 mb-4">
+						<button class="link text-sm">Overview</button>
+						<button class="link text-sm !bg-transparent hover:bg-gray-100 !text-gray-500"
+							>About</button
+						>
+					</div>
+					<div class="md:hidden my-4">
+					<h2 class="text-lg font-bold flex items-center gap-1">
+						<img
+							src="/icons/{changer}.png"
+							alt="{changerName} Logo"
+							class="w-6 h-6 rounded-full object-contain"
+						/>
+						<span class="text-gray-500/60">{changerName}</span>
+					</h2>
+					<div class="flex flex-row items-center justify-between mt-2">
+						<span class="flex items-center gap-3">
+							<span class="text-2xl font-bold">₦{price.toLocaleString()}</span>
+							<span
+								class="{rateChange.toString().includes('-')
+									? 'text-red-500'
+									: 'text-green-500'} text-xs">{rateChange}%</span
+							>
+						</span>
+						<span class="text-sm text-gray-500">
+							${dollar} Dollar
+						</span>
+					</div>
 				</div>
+				</div>
+				<div class="flex gap-4 mb-4 text-sm bg-gray-200/50 p-1 rounded-md">
+					{#each ['24hrs', '7days', '2weeks', 'All Time'] as tab}
+						<button
+							class="px-3 py-1 rounded-md bg-gray-100 {activeTab == tab
+								? 'text-gray-500 bg-white'
+								: 'text-gray-400'} text-sm"
+							on:click={() => (activeTab = tab)}
+						>
+							{tab}
+						</button>
+					{/each}
+				</div>
+				
+			</div>
+			<div class="w-full flex items-center justify-center text-gray-500">
+				<Chart />
 			</div>
 		</div>
 	</div>
 
-  <div class="mt-16 flex flex-col md:flex-row gap-6">
-    <div class="w-1/3">
-      <AdBanner name="changer_page" cover={true} />
-    </div>
-    <div class="w-2/3">
-      <h3 class="text-sm font-bold text-gray-700 mb-4">What is {changerName}?</h3>
-      <p class="text-gray-500">
-        GT Bank is a leading financial institution in Nigeria, known for its innovative banking solutions and
-        commitment to customer satisfaction. Established in 1990, GT Bank has grown to become one of the largest
-        banks in Africa, offering a wide range of services including personal banking, corporate banking, and
-        investment services. With a strong focus on technology and digital transformation, GT Bank provides its
-        customers with convenient and secure banking options through its extensive network of branches and ATMs,
-        as well as its robust online and mobile banking platforms. The bank is also recognized for its corporate
-        social responsibility initiatives, contributing to the development of communities across Nigeria.
-      </p>
+	<div class="mt-16 flex flex-col md:flex-row gap-6">
+		<div class="hidden md:block w-1/3">
+			<AdBanner name="changer_page" cover={true} />
+		</div>
+		<div class="w-full md:w-2/3 space-y-6">
+			<h3 class="text-sm font-bold text-gray-700">What is {changerName}?</h3>
+			<p class="text-gray-500">
+				GT Bank is a leading financial institution in Nigeria, known for its innovative banking
+				solutions and commitment to customer satisfaction. Established in 1990, GT Bank has grown to
+				become one of the largest banks in Africa, offering a wide range of services including
+				personal banking, corporate banking, and investment services. With a strong focus on
+				technology and digital transformation, GT Bank provides its customers with convenient and
+				secure banking options through its extensive network of branches and ATMs, as well as its
+				robust online and mobile banking platforms. The bank is also recognized for its corporate
+				social responsibility initiatives, contributing to the development of communities across
+				Nigeria.
+			</p>
 
-      <h3 class="text-sm font-bold text-gray-700 mb-4 mt-6">Where is {changerName}?</h3>
-      <p class="text-gray-500">
-        GT Bank, or Guaranty Trust Bank, is headquartered in Lagos, Nigeria. The bank has a strong presence
-        throughout Nigeria with numerous branches and ATMs across the country. In addition to its operations
-        in Nigeria, GT Bank has expanded its footprint internationally, with branches and subsidiaries in
-        several other countries including the United Kingdom, Ghana, Kenya, Rwanda, Sierra Leone, and The Gambia.
-        This international presence allows GT Bank to serve a diverse customer base and facilitate cross-border
-        banking services for individuals and businesses alike.
-      </p>
-    </div>
-  </div>
+			<h3 class="text-sm font-bold text-gray-700">Where is {changerName}?</h3>
+			<p class="text-gray-500">
+				GT Bank, or Guaranty Trust Bank, is headquartered in Lagos, Nigeria. The bank has a strong
+				presence throughout Nigeria with numerous branches and ATMs across the country. In addition
+				to its operations in Nigeria, GT Bank has expanded its footprint internationally, with
+				branches and subsidiaries in several other countries including the United Kingdom, Ghana,
+				Kenya, Rwanda, Sierra Leone, and The Gambia. This international presence allows GT Bank to
+				serve a diverse customer base and facilitate cross-border banking services for individuals
+				and businesses alike.
+			</p>
+		</div>
+	</div>
 </div>
 
 <style>
