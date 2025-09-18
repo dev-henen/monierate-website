@@ -47,15 +47,15 @@
 
 <div class="container">
 	<div>
-		<h1 class="text-xl font-bold mb-4 mt-0 pt-0 flex items-center gap-2">
+		<h1 class="text-2xl md:text-4xl mb-4 mt-0 pt-0 flex items-center gap-2">
 			<span>1 {fromCurrency.toUpperCase()} to {toCurrency.toUpperCase()} on</span>
 			<span class="inline-flex items-center gap-1">
 				<img
 					src="/icons/{changer}.png"
 					alt="{changerName} Logo"
-					class="w-6 h-6 rounded-full object-contain"
+					class="w-8 h-8 rounded-full object-contain"
 				/>
-				<span class="text-gray-500/60 dark:text-gray-200/60 text-lg">{changerName}</span>
+				<span class="text-gray-500/60 dark:text-gray-200/60 text-2xl">{changerName}</span>
 			</span>
 		</h1>
 	</div>
